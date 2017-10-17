@@ -2,21 +2,21 @@ var path = require('path');
 const webpack = require('webpack');
 
 
-const commonChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
-	names: ['vendor', 'manifest'],
-	filename: 'common.js'
-});
+// const commonChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
+// 	names: ['vendor', 'manifest'],
+// 	filename: 'commons.js'
+// });
 
 
 module.exports = {
 	entry: {
 		app: './index.js',
-		vendor: ['loadsh', 'bootstrap', 'whateverDependency']
+		// vendor: ['loadsh', 'bootstrap', 'whateverDependency']
 	},
 
 	output: {
 		filename: '[name].bundle.js',
-		path: path.join(_dirname, 'dist')	
+		path: path.join(__dirname, 'dist')	
 	},
 
 	 module: {
@@ -28,10 +28,16 @@ module.exports = {
                 query: {
                     presets: [['es2015']]
                 }
-            }, 
+            } 
         ]
     }
+    // plugins: [commonChunkPlugin]
+
 };
+
+
+
+
 
 
 
